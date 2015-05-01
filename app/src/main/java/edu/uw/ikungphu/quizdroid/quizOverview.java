@@ -45,6 +45,8 @@ public class quizOverview extends ActionBarActivity {
                 question.putExtra("topic", topic);
                 question.putExtra("topicRes", topicRes);
                 question.putExtra("numQuestions", numQuestions);
+
+                startActivity(question);
             }
         });
 
