@@ -2,10 +2,90 @@
 <resources>
 
     <string name="app_name">QuizDroid</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_overview">overview</string>
     <string name="title_activity_quiz_overview">quizOverview</string>
     <string name="title_activity_quiz_question">quizQuestion</string>
+    <string name="title_activity_quiz_answer"></string>
+    <string name="begin">Begin</string>
+
+    <integer name="questions">4</integer>
+
+    <string name="submit">Submit</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+
+    <string name="math_overview">Basic Math</string>
+    <integer name="math_questions">3</integer>
+
+    <string name="math_q1">2 + 2 =</string>
+    <integer name="math_q1_a">3</integer>
+    <string name="math_q1_a1">2</string>
+    <string name="math_q1_a2">3</string>
+    <string name="math_q1_a3">4</string>
+    <string name="math_q1_a4">5</string>
+
+    <string name="math_q2">48 / 2(9+3)</string>
+    <integer name="math_q2_a">1</integer>
+    <string name="math_q2_a1">2</string>
+    <string name="math_q2_a2">288</string>
+    <string name="math_q2_a3">144</string>
+    <string name="math_q2_a4">None of the above</string>
+
+    <string name="math_q3">3 + 3 * 3 - 3 / 3</string>
+    <integer name="math_q3_a">3</integer>
+    <string name="math_q3_a1">3</string>
+    <string name="math_q3_a2">5</string>
+    <string name="math_q3_a3">11</string>
+    <string name="math_q3_a4">17</string>
+
+    <string name="physics_overview">Basic Physics</string>
+    <integer name="physics_questions">3</integer>
+
+    <string name="physics_q1">In this equation, E = mc^2, the "m" stands for: </string>
+    <integer name="physics_q1_a">4</integer>
+    <string name="physics_q1_a1">meters</string>
+    <string name="physics_q1_a2">miles</string>
+    <string name="physics_q1_a3">millimeters</string>
+    <string name="physics_q1_a4">mass</string>
+
+    <string name="physics_q2">Who came up with the theory of relativity?</string>
+    <integer name="physics_q2_a">1</integer>
+    <string name="physics_q2_a1">Albert Einstein</string>
+    <string name="physics_q2_a2">Isaac Newton</string>
+    <string name="physics_q2_a3">Galileo Galilei</string>
+    <string name="physics_q2_a4">Stephen Hawking</string>
+
+    <string name="physics_q3">Which law of motion states "For every action there is an equal and opposite reaction"?</string>
+    <integer name="physics_q3_a">3</integer>
+    <string name="physics_q3_a1">Newton\'s First Law</string>
+    <string name="physics_q3_a2">Newton\'s Second Law</string>
+    <string name="physics_q3_a3">Newton\'s Third Law</string>
+    <string name="physics_q3_a4">Newton\'s Fourth Law</string>
+
+    <string name="marvel_overview">Basic Marvel</string>
+    <integer name="marvel_questions">3</integer>
+
+    <string name="marvel_q1">Who is the leader of the Avengers?</string>
+    <integer name="marvel_q1_a">3</integer>
+    <string name="marvel_q1_a1">Captain Falcon</string>
+    <string name="marvel_q1_a2">Captain American</string>
+    <string name="marvel_q1_a3">Captain America</string>
+    <string name="marvel_q1_a4">Captain Africa</string>
+
+    <string name="marvel_q2">Where does Spider-Man have jurisdiction?</string>
+    <integer name="marvel_q2_a">1</integer>
+    <string name="marvel_q2_a1">New York City</string>
+    <string name="marvel_q2_a2">Metropolis</string>
+    <string name="marvel_q2_a3">Gotham City</string>
+    <string name="marvel_q2_a4">Chicago</string>
+
+    <string name="marvel_q3">Who is named after a poisonous creature?</string>
+    <integer name="marvel_q3_a">2</integer>
+    <string name="marvel_q3_a1">Spider-Man</string>
+    <string name="marvel_q3_a2">Black Widow</string>
+    <string name="marvel_q3_a3">Scarlett Witch</string>
+    <string name="marvel_q3_a4">Loki</string>
+
 
 </resources>
