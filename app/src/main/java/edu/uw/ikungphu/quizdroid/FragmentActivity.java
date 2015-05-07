@@ -34,7 +34,7 @@ public class FragmentActivity extends ActionBarActivity implements OnFragmentInt
         topic = storage[0];
         String topicRes = intent.getStringExtra("topicRes");
         int idNumQuestions = getResources().getIdentifier(topicRes + "_questions", "integer", getPackageName());
-        int numQuestions = getResources().getInteger(idNumQuestions);
+        //int numQuestions = getResources().getInteger(idNumQuestions);
 
         if(questionNum > 0) {
             setTitle(topic + " Question " + questionNum);
