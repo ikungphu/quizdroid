@@ -70,6 +70,11 @@ public class OverviewFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle bundle = createBundle();
+                bundle.putString("topic", topic);
+                bundle.putString("topicRes", topicRes);
+                bundle.putInt("numQuestions", numQuestions);
+                bundle.putInt("questionNum", 1);
+                bundle.putInt("correct", 0);
 
                 if (fragListener != null) {
                     fragListener.onFragmentInteraction(new Uri.Builder().fragment("overview").build(), bundle);

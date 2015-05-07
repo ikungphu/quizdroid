@@ -73,7 +73,7 @@ public class QuestionFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int indexSelected = answers.indexOfChild(myInflater.findViewById(answers.getCheckedRadioButtonId()));
+                //int indexSelected = answers.indexOfChild(myInflater.findViewById(answers.getCheckedRadioButtonId()));
 
                 if (indexSelected >= 0) {
 
@@ -107,8 +107,14 @@ public class QuestionFragment extends Fragment {
                     "string", getActivity().getPackageName());
             String answer = getResources().getString(idAnswer);
             int idAnswerButton = getResources().getIdentifier("answer" + i, "id", getActivity().getPackageName());
-            TextView answerButton = (TextView) myInflater.findViewById(idAnswerButton);
+            Button answerButton = (Button) myInflater.findViewById(idAnswerButton);
             answerButton.setText(answer);
+            answerButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    indexSelected = answers.indexOfChild(v);
+                }
+            });
         }
 
         return myInflater;

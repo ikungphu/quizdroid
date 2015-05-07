@@ -28,6 +28,7 @@
             android:name=".AnswerFragment"
             android:label="@string/title_activity_quiz_answer" >
         </activity>
+        <activity android:name=".FragmentActivity"></activity>
     </application>
 
 </manifest>
