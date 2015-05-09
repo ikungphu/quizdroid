@@ -61,7 +61,7 @@ public class quizAnswer extends ActionBarActivity {
                 @Override
                 public void onClick(View v) {
                     if(questionNum < numQuestions) {
-                        Intent nextQuestion = new Intent(quizAnswer.this, quizQuestion.class);
+                        Intent nextQuestion = new Intent(quizAnswer.this, QuestionFragment.class);
                         nextQuestion.putExtra("topic", topic);
                         nextQuestion.putExtra("topicRes", topicRes);
                         nextQuestion.putExtra("numQuestions", numQuestions);

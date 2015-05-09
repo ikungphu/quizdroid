@@ -60,7 +60,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You have 4 out of 9 correct."
+        android:text="You have 4/9 correct."
         android:id="@+id/correctText"
         android:textSize="@dimen/abc_text_size_medium_material"
         android:gravity="center" />

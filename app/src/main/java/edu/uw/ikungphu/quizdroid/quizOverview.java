@@ -41,7 +41,7 @@ public class quizOverview extends ActionBarActivity {
         beginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent question = new Intent(quizOverview.this, quizQuestion.class);
+                Intent question = new Intent(quizOverview.this, QuestionFragment.class);
                 question.putExtra("topic", topic);
                 question.putExtra("topicRes", topicRes);
                 question.putExtra("numQuestions", numQuestions);
