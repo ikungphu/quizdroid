@@ -25,7 +25,7 @@ public class QuestionFragment extends Fragment {
     private Activity hostActivity;
 
     public QuestionFragment() {
-
+        // Required empty public constructor
     }
 
     @Override

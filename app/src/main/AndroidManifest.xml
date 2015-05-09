@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".quizOverview"
+            android:name=".OverviewFragment"
             android:label="@string/title_activity_quiz_overview" >
         </activity>
         <activity
@@ -25,7 +25,7 @@
             android:label="@string/title_activity_quiz_question" >
         </activity>
         <activity
-            android:name=".quizAnswer"
+            android:name=".AnswerFragment"
             android:label="@string/title_activity_quiz_answer" >
         </activity>
     </application>
