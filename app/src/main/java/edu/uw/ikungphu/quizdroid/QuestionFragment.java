@@ -51,7 +51,7 @@ public class QuestionFragment extends Fragment {
 
         answers = (RadioGroup) view.findViewById(R.id.answers);
         TextView correctText = (TextView) view.findViewById(R.id.correctText);
-        correctText.setText("You have " + correct + "/" + numQuestions + " correct.");
+        correctText.setText("You have " + correct + "/" + questionNum + " correct.");
 
         int idQuestion = getResources().getIdentifier(topicRes + "_q" + questionNum, "string", getActivity().getPackageName());
         String question = getResources().getString(idQuestion);
@@ -81,7 +81,7 @@ public class QuestionFragment extends Fragment {
                     }
 
                     if (hostActivity instanceof SecondActivity) {
-                        ((SecondActivity) hostActivity.loadAnswerFrag());
+                        ((SecondActivity) hostActivity).loadAnswerFrag(bundle);
                     }
                 }
             }

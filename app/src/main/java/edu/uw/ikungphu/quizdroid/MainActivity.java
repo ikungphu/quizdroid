@@ -28,9 +28,8 @@ public class MainActivity extends ActionBarActivity {
         topics.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent info = new Intent(MainActivity.this, OverviewFragment.class);
+                Intent info = new Intent(MainActivity.this, SecondActivity.class);
                 info.putExtra("topic", quizTopics[position]);
-
                 String topicRes = quizTopics[position].split(" ")[0];
                 info.putExtra("topicRes", topicRes.toLowerCase());
                 startActivity(info);

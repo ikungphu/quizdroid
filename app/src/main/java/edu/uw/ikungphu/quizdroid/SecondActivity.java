@@ -10,7 +10,9 @@ import android.view.Menu;
 
 public class SecondActivity extends ActionBarActivity {
     private String topic;
-    private int questionNum;
+    private int numQuestions, questionNum;
+
+    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +36,13 @@ public class SecondActivity extends ActionBarActivity {
         topic = storage[0];
         String topicRes = intent.getStringExtra("topicRes");
         int idNumQuestions = getResources().getIdentifier(topicRes + "_questions", "integer", getPackageName());
-        //int numQuestions = getResources().getInteger(idNumQuestions);
+        numQuestions = getResources().getInteger(idNumQuestions);
+        bundle = intent.getExtras();
 
-        if(questionNum > 0) {
-            setTitle(topic + " Question " + questionNum);
+        if(questionNum == 0) {
+            setTitle(topic + "Overview");
         } else {
-            setTitle("Results");
+            setTitle(topic + " Question " + questionNum);
         }
 
     }
@@ -56,36 +59,33 @@ public class SecondActivity extends ActionBarActivity {
         return true;
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri, Bundle bundle) {
-        if(uri.getFragment().equals("af") || uri.getFragment().equals("of")) {
-            if (bundle.getInt("questionNum") > bundle.getInt("numQuestions")) {
-                Intent intent = new Intent(FragmentActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
-                return;
-            } else {
-                QuestionFragment qf = new QuestionFragment();
-                qf.setArguments(bundle);
-
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.main, qf);
-                ft.commit();
-            }
+    public void loadAnswerFrag(Bundle info) {
+        if(info.getInt("questionNum") > info.getInt("numQuestions")) {
+            Intent main = new Intent(SecondActivity.this, MainActivity.class);
+            startActivity(main);
+            finish();
+            return;
         } else {
-            AnswerFragment af = new AnswerFragment();
-            af.setArguments(bundle);
-
             FragmentManager fm = getFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.main, af);
+            AnswerFragment answerFragment = new AnswerFragment();
+            answerFragment.setArguments(info);
+            ft.replace(R.id.container, answerFragment);
             ft.commit();
         }
+        questionNum = info.getInt("questionNum");
+        setTitle(topic + " Question " + questionNum);
+    }
 
-        questionNum = bundle.getInt("questionNum");
+    public void loadQuestionFrag(Bundle info) {
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        QuestionFragment questionFragment = new QuestionFragment();
+        questionFragment.setArguments(info);
+        ft.replace(R.id.container, questionFragment);
+        ft.commit();
+
+        questionNum = info.getInt("questionNum");
         setTitle(topic + " Question " + questionNum);
     }
 }

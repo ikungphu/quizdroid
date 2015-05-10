@@ -19,7 +19,7 @@ public class AnswerFragment extends Fragment {
 
     private String topic, topicRes;
     private int numQuestions, questionNum, correct, indexSelected, indexCorrect;
-    private OnFragmentInteractionListener fragListener;
+    private Activity hostActivity;
 
     public AnswerFragment() {
         // Required empty public constructor
@@ -80,6 +80,10 @@ public class AnswerFragment extends Fragment {
                     bundle.putInt("questionNum", questionNum++);
                     bundle.putInt("correct", correct);
 
+                    if (hostActivity instanceof SecondActivity) {
+                        ((SecondActivity) hostActivity).loadQuestionFrag(bundle);
+                    }
+
                 }
             });
         } else {
@@ -91,7 +95,7 @@ public class AnswerFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.hostActivity = activity
+        this.hostActivity = activity;
     }
 
     @Override

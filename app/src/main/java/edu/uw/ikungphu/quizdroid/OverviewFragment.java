@@ -65,6 +65,10 @@ public class OverviewFragment extends Fragment {
                 bundle.putInt("numQuestions", numQuestions);
                 bundle.putInt("questionNum", 1);
                 bundle.putInt("correct", 0);
+
+                if (hostActivity instanceof SecondActivity) {
+                    ((SecondActivity) hostActivity).loadQuestionFrag(bundle);
+                }
             }
         });
         return view;
@@ -74,6 +78,7 @@ public class OverviewFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        this.hostActivity = activity;
     }
 
     @Override
