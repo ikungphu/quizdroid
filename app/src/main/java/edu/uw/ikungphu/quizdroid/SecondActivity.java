@@ -60,31 +60,29 @@ public class SecondActivity extends ActionBarActivity {
     }
 
     public void loadAnswerFrag(Bundle info) {
-        if(info.getInt("questionNum") > info.getInt("numQuestions")) {
-            Intent main = new Intent(SecondActivity.this, MainActivity.class);
-            startActivity(main);
-            finish();
-            return;
-        } else {
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            AnswerFragment answerFragment = new AnswerFragment();
-            answerFragment.setArguments(info);
-            ft.replace(R.id.container, answerFragment);
-            ft.commit();
-        }
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        AnswerFragment answerFragment = new AnswerFragment();
+        answerFragment.setArguments(info);
+        ft.replace(R.id.container, answerFragment);
+        ft.commit();
         questionNum = info.getInt("questionNum");
         setTitle(topic + " Question " + questionNum);
     }
 
     public void loadQuestionFrag(Bundle info) {
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        QuestionFragment questionFragment = new QuestionFragment();
-        questionFragment.setArguments(info);
-        ft.replace(R.id.container, questionFragment);
-        ft.commit();
-
+        if(info.getInt("questionNum") > info.getInt("numQuestions")) {
+            startActivity(new Intent(SecondActivity.this, MainActivity.class));
+            finish();
+            return;
+        } else {
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            QuestionFragment questionFragment = new QuestionFragment();
+            questionFragment.setArguments(info);
+            ft.replace(R.id.container, questionFragment);
+            ft.commit();
+        }
         questionNum = info.getInt("questionNum");
         setTitle(topic + " Question " + questionNum);
     }

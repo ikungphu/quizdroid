@@ -47,7 +47,7 @@ public class AnswerFragment extends Fragment {
         // number of correct answers
         View view = inflater.inflate(R.layout.activity_quiz_answer, container, false);
         TextView correctText = (TextView) view.findViewById(R.id.textCorrect);
-        correctText.setText("You have " + correct + " out of " + (questionNum) + " correct.");
+        correctText.setText("You have " + correct + "/" + (questionNum) + " correct.");
 
         // question text
         int idQuestion = getResources().getIdentifier(topicRes + "_q" + questionNum, "string", getActivity().getPackageName());
@@ -69,7 +69,9 @@ public class AnswerFragment extends Fragment {
         correctAnswerText.setText("Correct answer: " + correctAnswer);
 
         Button next = (Button) view.findViewById(R.id.next);
-        if (questionNum < numQuestions) {
+        if (questionNum == numQuestions) {
+            next.setText(getResources().getString(R.string.finish));
+        }
             next.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -77,7 +79,7 @@ public class AnswerFragment extends Fragment {
                     bundle.putString("topic", topic);
                     bundle.putString("topicRes", topicRes);
                     bundle.putInt("numQuestions", numQuestions);
-                    bundle.putInt("questionNum", questionNum++);
+                    bundle.putInt("questionNum", questionNum + 1);
                     bundle.putInt("correct", correct);
 
                     if (hostActivity instanceof SecondActivity) {
@@ -86,9 +88,6 @@ public class AnswerFragment extends Fragment {
 
                 }
             });
-        } else {
-            next.setText(getResources().getString(R.string.finish));
-        }
         return view;
     }
 
