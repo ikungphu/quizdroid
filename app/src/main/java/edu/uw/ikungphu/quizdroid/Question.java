@@ -1,34 +1,21 @@
 package edu.uw.ikungphu.quizdroid;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Question {
     public String question;
-    public String[] answer;
-    public int index;
+    public List<String> answers;
+    public int correctIndex;
 
-    public Question(String question, String[] answer, int index) {
+    public Question(String question, int index) {
         this.question= question;
-        this.answer = answer;
-        this.index = index;
+        this.correctIndex = index;
+        answers = new ArrayList<String>();
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public String getQuestion() {
-        return this.question;
-    }
-
-    public void setAnswer(String[] answer) {
-        this.answer = answer;
-    }
-
-    public String[] getAnswers() {
-        return this.answer;
-    }
-
-    public String getCorrectAnswer() {
-        return this.answer[index];
+    public void addAnswer(String answer) {
+        answers.add(answer);
     }
 }

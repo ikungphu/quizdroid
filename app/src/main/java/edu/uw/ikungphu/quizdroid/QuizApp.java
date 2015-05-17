@@ -49,11 +49,13 @@ public class QuizApp  extends Application {
             Log.i("Application", "JSON length: " + jsonData.length());
             for(int i = 0; i < jsonData.length(); i++) {
                 JSONObject topic = jsonData.getJSONObject(i);
+                JSONArray questions = topic.getJSONArray("questions");
                 String title = topic.getString("title");
                 String desc = topic.getString("desc");
                 Log.i("Application", title + ": " + desc);
-                JSONArray questions = topic.getJSONArray("questions");
-                List<Question> questionList = new ArrayList<Question>();
+                Topic topicObj = new Topic(title, desc, questions.length());
+
+                //List<Question> questionList = new ArrayList<Question>();
 
                 // Parsing questions
                 for(int j = 0; j < questions.length(); j++) {
@@ -61,18 +63,20 @@ public class QuizApp  extends Application {
                     String text = question.getString("text");
                     int index = Integer.parseInt(question.getString("answer"));
                     JSONArray answers = question.getJSONArray("answers");
-                    String[] answerList = new String[answers.length()];
-
+                    //String[] answerList = new String[answers.length()];
+                    Question quest = new Question(text, index);
                     // Parsing answers
                     for(int k = 0; k < answers.length(); k++) {
-                        answerList[k] = answers.getString(k);
+                        //answerList[k] = answers.getString(k);
                         Log.i("Application", k + " " + answers.getString(k));
+                        quest.addAnswer(answers.get(k).toString());
                     }
-                    Question quest = new Question(text, answerList, (index - 1));
-                    questionList.add(quest);
-                    Log.i("Application", text + " " + index + " " + answerList.toString());
+                    //Question quest = new Question(text, answerList, (index - 1));
+                    //questionList.add(quest);
+                    Log.i("Application", text + " " + index);
+                    topicObj.addQuestion(quest);
                 }
-                topicList.add(new Topic(title, questionList, desc, ""));
+                topicList.add(topicObj);
             }
         } catch(IOException e) {
             e.printStackTrace();
