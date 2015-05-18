@@ -19,7 +19,7 @@ public class QuizApp  extends Application {
 
     private static QuizApp instance = null;
     private List<Topic> topicList = new ArrayList<Topic>();
-
+    private TopicRepository topicRepository;
 
     public QuizApp() {
         if (instance == null) {
@@ -85,5 +85,16 @@ public class QuizApp  extends Application {
         }
     }
 
+    public List<Topic> getTopics() {
+        return topicRepository.getTopics();
+    }
+
+    public List<String> getTopicStrings() {
+        List<String> topicStrings = new ArrayList<String>();
+        for (Topic topic : topicRepository.getTopics()) {
+            topicStrings.add(topic.topic);
+        }
+        return topicStrings;
+    }
 
 }

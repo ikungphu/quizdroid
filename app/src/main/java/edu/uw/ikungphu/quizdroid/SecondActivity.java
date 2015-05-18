@@ -9,40 +9,48 @@ import android.os.Bundle;
 import android.view.Menu;
 
 public class SecondActivity extends ActionBarActivity {
-    private String topic;
+    private String topicString;
     private int numQuestions, questionNum;
+    private int index;
 
-    private Bundle bundle;
-
+    //private Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        index = getIntent().getIntExtra("position", -1);
+        Topic topic = ((QuizApp) getApplication()).getTopics().get(index);
+
         if (savedInstanceState != null) {
             questionNum = savedInstanceState.getInt("questionNum");
         } else {
+            questionNum = -1;
             OverviewFragment of = new OverviewFragment();
             of.setArguments(getIntent().getExtras());
 
+            Bundle arguments = new Bundle();
+            arguments.putInt("position", index);
             FragmentManager fm = getFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
             ft.add(R.id.container, of);
             ft.commit();
         }
 
-        Intent intent = getIntent();
-        String[] storage = intent.getStringExtra("topic").split(" ");
-        topic = storage[0];
-        String topicRes = intent.getStringExtra("topicRes");
-        int idNumQuestions = getResources().getIdentifier(topicRes + "_questions", "integer", getPackageName());
-        numQuestions = getResources().getInteger(idNumQuestions);
-        bundle = intent.getExtras();
+        //Intent intent = getIntent();
+        //String[] storage = intent.getStringExtra("topic").split(" ");
+        //topicString = storage[0];
+        //String topicRes = intent.getStringExtra("topicRes");
+        //int idNumQuestions = getResources().getIdentifier(topicRes + "_questions", "integer", getPackageName());
+        //numQuestions = getResources().getInteger(idNumQuestions);
+        //bundle = intent.getExtras();
 
-        if(questionNum == 0) {
+        topicString = topic.topic.split(" ")[0];
+
+        if(questionNum == -1) {
             setTitle(topic + "Overview");
         } else {
-            setTitle(topic + " Question " + questionNum);
+            setTitle(topic + " Question " + questionNum + 1);
         }
 
     }
@@ -67,7 +75,7 @@ public class SecondActivity extends ActionBarActivity {
         ft.replace(R.id.container, answerFragment);
         ft.commit();
         questionNum = info.getInt("questionNum");
-        setTitle(topic + " Question " + questionNum);
+        setTitle(topicString + " Question " + questionNum);
     }
 
     public void loadQuestionFrag(Bundle info) {
@@ -84,6 +92,6 @@ public class SecondActivity extends ActionBarActivity {
             ft.commit();
         }
         questionNum = info.getInt("questionNum");
-        setTitle(topic + " Question " + questionNum);
+        setTitle(topicString + " Question " + questionNum);
     }
 }

@@ -16,28 +16,31 @@ import android.widget.TextView;
 
 public class OverviewFragment extends Fragment {
 
-    private String topic;
-    private String topicRes;
-    private int numQuestions;
+    private Topic topic;
+    private int position;
+    //private String topicRes;
+    //private int numQuestions;
     private Activity hostActivity;
 
-    public Bundle createBundle() {
-        Bundle bundle = new Bundle();
-        bundle.putString("topic", topic);
-        bundle.putString("topicRes", topicRes);
-        bundle.putInt("numQuestions", numQuestions);
-        bundle.putInt("questionNum", 1);
-        bundle.putInt("correct", 0);
+    //public Bundle createBundle() {
+        //Bundle bundle = new Bundle();
+        //bundle.putString("topic", topic);
+        //bundle.putString("topicRes", topicRes);
+        //bundle.putInt("numQuestions", numQuestions);
+       // bundle.putInt("questionNum", 0);
+        //bundle.putInt("correct", 0);
 
-        return bundle;
-    }
+        //return bundle;
+    //}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            topic = getArguments().getString("topicTitle");
-            topicRes = getArguments().getString("topicRes");
+            //topic = getArguments().getString("topicTitle");
+            //topicRes = getArguments().getString("topicRes");
+            position = getArguments().getInt("position");
+            topic = ((QuizApp) getActivity().getApplication()).getTopics().get(position);
         }
     }
 
@@ -45,25 +48,26 @@ public class OverviewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view  = inflater.inflate(R.layout.activity_quiz_overview, container, false);
 
-        int idTopic = getResources().getIdentifier(topicRes + "_overview", "string", getActivity().getPackageName());
-        String overview = getResources().getString(idTopic);
+        //int idTopic = getResources().getIdentifier(topicRes + "_overview", "string", getActivity().getPackageName());
+        //String overview = getResources().getString(idTopic);
         TextView textOverview = (TextView) view.findViewById(R.id.textOverview);
-        textOverview.setText(overview);
+        textOverview.setText(topic.overview);
 
-        int idNumQuestions = getResources().getIdentifier(topicRes + "_questions", "integer", getActivity().getPackageName());
-        numQuestions = getResources().getInteger(idNumQuestions);
+        //int idNumQuestions = getResources().getIdentifier(topicRes + "_questions", "integer", getActivity().getPackageName());
+        //numQuestions = getResources().getInteger(idNumQuestions);
         TextView viewNumQuestions = (TextView) view.findViewById(R.id.numQuestions);
-        viewNumQuestions.setText("Questions: " + numQuestions);
+        viewNumQuestions.setText("Questions: " + topic.numQuestions);
 
         Button beginButton = (Button) view.findViewById(R.id.beginBtn);
         beginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = createBundle();
-                bundle.putString("topic", topic);
-                bundle.putString("topicRes", topicRes);
-                bundle.putInt("numQuestions", numQuestions);
-                bundle.putInt("questionNum", 1);
+                Bundle bundle = new Bundle();
+                //bundle.putString("topic", topic);
+                //bundle.putString("topicRes", topicRes);
+                //bundle.putInt("numQuestions", numQuestions);
+                bundle.putInt("position", position);
+                bundle.putInt("questionNum", 0);
                 bundle.putInt("correct", 0);
 
                 if (hostActivity instanceof SecondActivity) {

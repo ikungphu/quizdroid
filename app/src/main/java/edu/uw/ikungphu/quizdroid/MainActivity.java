@@ -13,15 +13,17 @@ import android.widget.ListView;
 
 public class MainActivity extends ActionBarActivity {
 
-    public String[] quizTopics = {"Math", "Physics", "Marvel Super Heroes"};
+    //public String[] quizTopics = {"Math", "Physics", "Marvel Super Heroes"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, quizTopics);
+        QuizApp quizApp = (QuizApp) getApplication();
 
+        //ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, quizTopics);
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, quizApp.getTopicStrings());
         ListView topics = (ListView) findViewById(R.id.topics);
         topics.setAdapter(itemsAdapter);
 
@@ -29,9 +31,10 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent info = new Intent(MainActivity.this, SecondActivity.class);
-                info.putExtra("topic", quizTopics[position]);
-                String topicRes = quizTopics[position].split(" ")[0];
-                info.putExtra("topicRes", topicRes.toLowerCase());
+                //info.putExtra("topic", quizTopics[position]);
+                //String topicRes = quizTopics[position].split(" ")[0];
+                //info.putExtra("topicRes", topicRes.toLowerCase());
+                info.putExtra("position", position);
                 startActivity(info);
             }
         });

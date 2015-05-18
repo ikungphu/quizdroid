@@ -15,9 +15,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ff54009-2aa9-44ee-bd8c-105a50073dba" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/Topic.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/Question.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/Question.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/TopicRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/questions.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/AnswerFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/AnswerFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/OverviewFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/OverviewFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/QuestionFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/QuestionFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/QuizApp.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/QuizApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/SecondActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/SecondActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="quizdroid.iws" />
@@ -44,9 +49,13 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
-              <caret line="42" column="72" selection-start-line="42" selection-start-column="72" selection-end-line="42" selection-end-column="72" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding>
+                <element signature="e#870#878#0" expanded="true" />
+                <element signature="e#1094#1652#0" expanded="true" />
+                <element signature="e#1641#1642#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,60 +63,43 @@
       <file leaf-file-name="SecondActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/SecondActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
-              <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="386" max-vertical-offset="1440">
+              <caret line="57" column="13" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QuizApp.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="QuestionFragment.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/QuestionFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.21726756" vertical-offset="626" max-vertical-offset="1680">
+              <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TopicRepository.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/TopicRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuizApp.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/QuizApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38804555" vertical-offset="236" max-vertical-offset="1425">
-              <caret line="43" column="27" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="431" max-vertical-offset="1560">
+              <caret line="96" column="28" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#493#500#0" expanded="true" />
+                <element signature="e#3488#3496#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Question.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/Question.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-              <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#413#414#0" expanded="true" />
-                <element signature="e#448#449#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Topic.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/Topic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#503#504#0" expanded="true" />
-                <element signature="e#542#543#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1076,21 +1068,22 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_quiz_question.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_second.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_second.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/OverviewFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/QuestionFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/SecondActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/AnswerFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/Topic.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/Question.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/TopicRepository.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/QuizApp.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/SecondActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/AnswerFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/OverviewFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/QuestionFragment.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="543" />
-    <option name="y" value="125" />
+    <option name="x" value="955" />
+    <option name="y" value="65" />
     <option name="width" value="1793" />
     <option name="height" value="1198" />
   </component>
@@ -1256,6 +1249,9 @@
   <component name="RecentsManager">
     <key name="android.template.packageName">
       <recent name="edu.uw.ikungphu.quizdroid" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/assets" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -1426,7 +1422,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="543" y="125" width="1793" height="1198" extended-state="0" />
+    <frame x="955" y="65" width="1793" height="1198" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1517,7 +1513,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
           <caret line="42" column="72" selection-start-line="42" selection-start-column="72" selection-end-line="42" selection-end-column="72" />
-          <folding />
+          <folding>
+            <element signature="e#870#878#0" expanded="true" />
+            <element signature="e#1094#1652#0" expanded="true" />
+            <element signature="e#1641#1642#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1551,8 +1551,7 @@
           <caret line="67" column="86" selection-start-line="67" selection-start-column="86" selection-end-line="67" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#3991#3992#0" expanded="false" />
-            <element signature="e#4023#4024#0" expanded="false" />
+            <element signature="e#4029#4030#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1580,7 +1579,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
           <caret line="42" column="72" selection-start-line="42" selection-start-column="72" selection-end-line="42" selection-end-column="72" />
-          <folding />
+          <folding>
+            <element signature="e#870#878#0" expanded="true" />
+            <element signature="e#1094#1652#0" expanded="true" />
+            <element signature="e#1641#1642#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1633,8 +1636,7 @@
           <caret line="82" column="20" selection-start-line="82" selection-start-column="20" selection-end-line="84" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#3991#3992#0" expanded="false" />
-            <element signature="e#4023#4024#0" expanded="false" />
+            <element signature="e#4029#4030#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1724,54 +1726,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/OverviewFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="452" max-vertical-offset="1230">
-          <caret line="63" column="55" selection-start-line="63" selection-start-column="55" selection-end-line="63" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/QuestionFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="471" max-vertical-offset="1620">
-          <caret line="53" column="59" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/AnswerFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.0" vertical-offset="435" max-vertical-offset="1440">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3991#3992#0" expanded="false" />
-            <element signature="e#4023#4024#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
-          <caret line="42" column="72" selection-start-line="42" selection-start-column="72" selection-end-line="42" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/SecondActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
-          <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -1800,14 +1758,78 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/assets/questions.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#870#878#0" expanded="true" />
+            <element signature="e#1094#1652#0" expanded="true" />
+            <element signature="e#1641#1642#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/TopicRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/QuizApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38804555" vertical-offset="236" max-vertical-offset="1425">
-          <caret line="43" column="27" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="416" max-vertical-offset="1590">
+          <caret line="96" column="28" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#493#500#0" expanded="true" />
+            <element signature="e#3488#3496#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/AnswerFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13187855" vertical-offset="536" max-vertical-offset="1590">
+          <caret line="57" column="24" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
+          <folding>
+            <element signature="e#4503#4504#0" expanded="true" />
+            <element signature="e#4535#4536#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/OverviewFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27419356" vertical-offset="161" max-vertical-offset="1215">
+          <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/SecondActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="386" max-vertical-offset="1440">
+          <caret line="57" column="13" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/uw/ikungphu/quizdroid/QuestionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21726756" vertical-offset="626" max-vertical-offset="1680">
+          <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
