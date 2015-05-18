@@ -98,12 +98,12 @@ public class QuestionFragment extends Fragment {
             }
         });
 
-        for (int i = 1; i <= getResources().getInteger(R.integer.questions); i++) {
-            int idAnswer = getResources().getIdentifier("answerButton" + (i+1), "id", getActivity().getPackageName());
+        for (int i = 0; i < getResources().getInteger(R.integer.questions); i++) {
+            int idAnswer = getResources().getIdentifier("answer" + (i+1), "id", getActivity().getPackageName());
             //String answer = getResources().getString(idAnswer);
             //int idAnswerButton = getResources().getIdentifier("answer" + i, "id", getActivity().getPackageName());
-            Button answerButton = (Button) view.findViewById(idAnswerButton);
-            //answerButton.setText(answer);
+            Button answerButton = (Button) view.findViewById(idAnswer);
+            answerButton.setText(question.answers.get(i));
             answerButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

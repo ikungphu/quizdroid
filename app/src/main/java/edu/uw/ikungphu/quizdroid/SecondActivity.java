@@ -48,9 +48,9 @@ public class SecondActivity extends ActionBarActivity {
         topicString = topic.topic.split(" ")[0];
 
         if(questionNum == -1) {
-            setTitle(topic + "Overview");
+            setTitle(topicString + " Overview");
         } else {
-            setTitle(topic + " Question " + questionNum + 1);
+            setTitle(topicString + " Question yo" );
         }
 
     }
@@ -75,7 +75,7 @@ public class SecondActivity extends ActionBarActivity {
         ft.replace(R.id.container, answerFragment);
         ft.commit();
         questionNum = info.getInt("questionNum");
-        setTitle(topicString + " Question " + questionNum);
+        setTitle(topicString + " Question " + questionNum + 1);
     }
 
     public void loadQuestionFrag(Bundle info) {
@@ -92,6 +92,6 @@ public class SecondActivity extends ActionBarActivity {
             ft.commit();
         }
         questionNum = info.getInt("questionNum");
-        setTitle(topicString + " Question " + questionNum);
+        setTitle(topicString + " Question " + questionNum + 1);
     }
 }

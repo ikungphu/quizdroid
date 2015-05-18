@@ -15,11 +15,11 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuizApp  extends Application {
+public class QuizApp extends Application {
 
     private static QuizApp instance = null;
     private List<Topic> topicList = new ArrayList<Topic>();
-    private TopicRepository topicRepository;
+    //private TopicRepository topicRepository;
 
     public QuizApp() {
         if (instance == null) {
@@ -46,7 +46,7 @@ public class QuizApp  extends Application {
             result = builder.toString();
             JSONArray jsonData = new JSONArray(result);
 
-            Log.i("Application", "JSON length: " + jsonData.length());
+            Log.i("Application", "JSON data: " + jsonData);
             for(int i = 0; i < jsonData.length(); i++) {
                 JSONObject topic = jsonData.getJSONObject(i);
                 JSONArray questions = topic.getJSONArray("questions");
@@ -54,7 +54,6 @@ public class QuizApp  extends Application {
                 String desc = topic.getString("desc");
                 Log.i("Application", title + ": " + desc);
                 Topic topicObj = new Topic(title, desc, questions.length());
-
                 //List<Question> questionList = new ArrayList<Question>();
 
                 // Parsing questions
@@ -64,8 +63,9 @@ public class QuizApp  extends Application {
                     int index = Integer.parseInt(question.getString("answer"));
                     JSONArray answers = question.getJSONArray("answers");
                     //String[] answerList = new String[answers.length()];
-                    Question quest = new Question(text, index);
+                    Question quest = new Question(text, index - 1);
                     // Parsing answers
+                    Log.i("Application", text + "| answer: " + index);
                     for(int k = 0; k < answers.length(); k++) {
                         //answerList[k] = answers.getString(k);
                         Log.i("Application", k + " " + answers.getString(k));
@@ -73,7 +73,7 @@ public class QuizApp  extends Application {
                     }
                     //Question quest = new Question(text, answerList, (index - 1));
                     //questionList.add(quest);
-                    Log.i("Application", text + " " + index);
+                    //Log.i("Application", text + " " + index);
                     topicObj.addQuestion(quest);
                 }
                 topicList.add(topicObj);
@@ -85,13 +85,11 @@ public class QuizApp  extends Application {
         }
     }
 
-    public List<Topic> getTopics() {
-        return topicRepository.getTopics();
-    }
+    public List<Topic> getTopics() {return topicList;}
 
     public List<String> getTopicStrings() {
         List<String> topicStrings = new ArrayList<String>();
-        for (Topic topic : topicRepository.getTopics()) {
+        for (Topic topic : topicList) {
             topicStrings.add(topic.topic);
         }
         return topicStrings;
