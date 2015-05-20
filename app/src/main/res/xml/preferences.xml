@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:title="URL"
+        android:key="URL"
+        android:summary="URL to download questions"
+        android:defaultValue="http://tednewardsandbox.site44.com/questions.json" />
+    <EditTextPreference
+        android:title="Frequency"
+        android:key="Frequency"
+        android:summary="How often to check for downloads"/>
+</PreferenceScreen>

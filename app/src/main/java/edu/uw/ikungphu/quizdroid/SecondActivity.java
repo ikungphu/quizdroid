@@ -2,11 +2,13 @@ package edu.uw.ikungphu.quizdroid;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.app.AlarmManager;
 
 public class SecondActivity extends ActionBarActivity {
     private String topicString;
@@ -93,5 +95,14 @@ public class SecondActivity extends ActionBarActivity {
         }
         questionNum = info.getInt("questionNum");
         setTitle(topicString + " Question " + questionNum + 1);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        QuizApp quizApp = (QuizApp) getApplication();
+        AlarmManager alarmManager = quizApp.alarm;
+        PendingIntent pendingIntent = quizApp.pendingIntent;
+        alarmManager.cancel(pendingIntent);
     }
 }

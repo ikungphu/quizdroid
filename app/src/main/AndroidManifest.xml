@@ -18,6 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Preferences"></activity>
         <activity
             android:name=".OverviewFragment"
             android:label="@string/title_activity_quiz_overview" >
@@ -31,6 +32,11 @@
             android:label="@string/title_activity_quiz_answer" >
         </activity>
         <activity android:name=".SecondActivity"></activity>
+        <receiver android:name=".Receiver">
+            <intent-filter>
+                <action android:name="com.tutorialspoint.CUSTOM_INTENT"></action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

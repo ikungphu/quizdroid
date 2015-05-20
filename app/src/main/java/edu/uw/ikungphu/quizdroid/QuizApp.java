@@ -1,7 +1,13 @@
 package edu.uw.ikungphu.quizdroid;
 
 
+import android.app.AlarmManager;
 import android.app.Application;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -20,6 +26,9 @@ public class QuizApp extends Application {
     private static QuizApp instance = null;
     private List<Topic> topicList = new ArrayList<Topic>();
     //private TopicRepository topicRepository;
+    AlarmManager alarm;
+    Intent intent;
+    PendingIntent pendingIntent;
 
     public QuizApp() {
         if (instance == null) {
@@ -33,6 +42,18 @@ public class QuizApp extends Application {
     public void onCreate() {
         super.onCreate();
         Log.i("Application", "QuizApp is loaded and running");
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        String url = sharedPreferences.getString("URL", "http://tednewardsandbox.site44.com/questions.json");
+        int time = Integer.parseInt(sharedPreferences.getString("frequency", "10"));
+
+        Log.i("Alert", url + " " + time);
+        alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        intent = new Intent();
+        intent.setAction("com.tutorialspoint.CUSTOM_INTENT");
+        intent.putExtra("message", url);
+        pendingIntent = PendingIntent.getBroadcast(QuizApp.this, 0, intent, 0);
+        alarm.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 10000, pendingIntent);
 
         try {
             InputStream inputStream = getAssets().open("questions.json");
