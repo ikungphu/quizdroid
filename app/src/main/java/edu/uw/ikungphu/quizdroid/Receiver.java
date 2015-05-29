@@ -10,8 +10,12 @@ public class Receiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        String url = intent.getStringExtra("message");
-        Toast.makeText(context, url, Toast.LENGTH_LONG).show();
+        Intent serviceIntent = new Intent(context, Download.class);
+        serviceIntent.putExtra("message", intent.getStringExtra("message"));
+        context.startService(serviceIntent);
+
+        //String url = intent.getStringExtra("message");
+        //Toast.makeText(context, url, Toast.LENGTH_LONG).show();
     }
 
 }

@@ -4,17 +4,24 @@ package edu.uw.ikungphu.quizdroid;
 import android.app.AlarmManager;
 import android.app.Application;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -29,6 +36,11 @@ public class QuizApp extends Application {
     AlarmManager alarm;
     Intent intent;
     PendingIntent pendingIntent;
+    private String url;
+    private AlarmManager alarmManager;
+    private boolean alarmSet;
+    private int interval;
+
 
     public QuizApp() {
         if (instance == null) {
@@ -43,11 +55,34 @@ public class QuizApp extends Application {
         super.onCreate();
         Log.i("Application", "QuizApp is loaded and running");
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        String url = sharedPreferences.getString("URL", "http://tednewardsandbox.site44.com/questions.json");
-        int time = Integer.parseInt(sharedPreferences.getString("frequency", "10"));
+        //SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        //String url = sharedPreferences.getString("URL", "http://tednewardsandbox.site44.com/questions.json");
 
-        Log.i("Alert", url + " " + time);
+        File myFile = new File(getFilesDir().getAbsolutePath(), "/data.json");
+        String json = "";
+
+        if(myFile.exists()) {
+            try {
+                FileInputStream fileInputStream = openFileInput("data.json");
+                json = readJSONFile(fileInputStream);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                ;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+                try {
+                    InputStream inputStream = getAssets().open("data.json");
+                    json = readJSONFile(inputStream);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+        }
+
+        //int time = Integer.parseInt(sharedPreferences.getString("frequency", "10"));
+
+        //Log.i("Alert", url + " " + time);
         alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         intent = new Intent();
         intent.setAction("com.tutorialspoint.CUSTOM_INTENT");
@@ -56,16 +91,16 @@ public class QuizApp extends Application {
         alarm.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 10000, pendingIntent);
 
         try {
-            InputStream inputStream = getAssets().open("questions.json");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            StringBuilder builder = new StringBuilder();
-            String result = null;
-            String line = null;
-            while((line = reader.readLine()) != null) {
-                builder.append(line + "\n");
-            }
-            result = builder.toString();
-            JSONArray jsonData = new JSONArray(result);
+            //InputStream inputStream = getAssets().open("questions.json");
+            //BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            //StringBuilder builder = new StringBuilder();
+            //String result = null;
+            //String line = null;
+            //while((line = reader.readLine()) != null) {
+            //   builder.append(line + "\n");
+            //}
+            //result = builder.toString();
+            JSONArray jsonData = new JSONArray(json);
 
             Log.i("Application", "JSON data: " + jsonData);
             for(int i = 0; i < jsonData.length(); i++) {
@@ -99,14 +134,61 @@ public class QuizApp extends Application {
                 }
                 topicList.add(topicObj);
             }
-        } catch(IOException e) {
-            e.printStackTrace();
-        }  catch(JSONException e) {
+        } catch(JSONException e) {
             e.printStackTrace();
         }
+
+        Download.toggleAlarm(this, true);
+
+        alarmSet = false;
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        url = sharedPreferences.getString("url", "http://tednewardsandbox.site44.com/questions.json");
+        interval = Integer.parseInt(sharedPreferences.getString("interval", "1")) * 60000;
+        alarmManager  = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+
+        BroadcastReceiver alarmReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Toast.makeText(QuizApp.this, url, Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        registerReceiver(alarmReceiver, new IntentFilter("humzam.washington.edu.getData"));
+
+        Intent intent = new Intent();
+        intent.setAction("humzam.washington.edu.getData");
+        pendingIntent = PendingIntent.getBroadcast(this,0,intent,0);
+        changeUrl(url, interval);
+        //quiz.setTopics(questions);
+    }
+
+    public void changeUrl(String url, int interval) {
+        this.url = url;
+        this.interval = interval;
+        if (alarmSet) {
+            alarmManager.cancel(pendingIntent);
+            pendingIntent.cancel();
+            alarmSet = false;
+        }
+        alarmSet = true;
+        alarmManager.setRepeating(AlarmManager.RTC, System.currentTimeMillis() + 1000, interval, pendingIntent);
+    }
+
+    public String readJSONFile(InputStream inputStream) throws IOException {
+        int size = inputStream.available();
+        byte[] buffer = new byte[size];
+        inputStream.read(buffer);
+        inputStream.close();
+
+        return new String(buffer, "UTF-8");
     }
 
     public List<Topic> getTopics() {return topicList;}
+
+    public static QuizApp getInstance() {
+        return instance;
+    }
 
     public List<String> getTopicStrings() {
         List<String> topicStrings = new ArrayList<String>();
@@ -114,6 +196,18 @@ public class QuizApp extends Application {
             topicStrings.add(topic.topic);
         }
         return topicStrings;
+    }
+
+    public void writeToFile(String data) {
+        try {
+            File file = new File(getFilesDir().getAbsolutePath(), "data.json");
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            fileOutputStream.write(data.getBytes());
+            fileOutputStream.close();
+        }
+        catch (IOException e) {
+            Log.e("Exception", "File write failed: " + e.toString());
+        }
     }
 
 }
